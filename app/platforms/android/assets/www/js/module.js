@@ -185,7 +185,7 @@ app.controller("FormularioCreatCtrl", function ($scope) {
 
 //Controlador del main del game
 app.controller("GAME_CONTROLLER", function ($scope, $firebaseObject) {
-    $scope.GAME_STYLE = {display : "none", background: "url('img/fondo02.jpg')"};
+    $scope.GAME_STYLE = {display : "block", background: "url('img/fondo02.jpg')"};
     $scope.styleContent_PLay_Main_GAME = {display: "none"};
     //Objeto DATA html del juego
     var GAME = {
@@ -200,6 +200,7 @@ app.controller("GAME_CONTROLLER", function ($scope, $firebaseObject) {
     }, 1500);*/
     $scope.Play_Main_GAME = function(){
         $scope.styleFormas_Play = {"-webkit-animation-name" : "FomasPlay", "-webkit-animation-duration" : "12s", "-webkit-animation-iteration-count" : "infinite"};
+         $scope.styleColores_Play = {"-webkit-animation-name" : "ColoresPlay", "-webkit-animation-duration" : "12s", "-webkit-animation-iteration-count" : "infinite"};
         $scope.styleContent_PLay_Main_GAME = {display : "block"};
     }
 
@@ -209,6 +210,10 @@ app.controller("GAME_CONTROLLER", function ($scope, $firebaseObject) {
         localStorage.OsmanyTeamLogin = 'false';
         document.getElementById("GAME_CONTENT").style.display = "none";
         document.getElementById("Formulario").style.display="block";
+    }
+    
+    $scope.Atras_Play_Main_GAME = function (){
+        $scope.styleContent_PLay_Main_GAME = {display : "none"};
     }
     
 });

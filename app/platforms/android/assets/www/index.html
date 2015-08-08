@@ -36,7 +36,7 @@
         <!--Mensaje para dar aconocer que no tiene coneccion a internet-->
         <div id="Sin_Coneccion">
             <div>
-                <h1>Nesesitas estar conectado a internet</h1>
+                <h1>Necesitas estar conectado a internet</h1>
                 <button id="BotonComprobarConeccion"><span><i class="fa fa-refresh fa-5x"></i></span></button>
             </div>
         </div>
@@ -76,8 +76,8 @@
                     <span class="error_form" data-ng-show="FormularioCreat.Nombre_Creat.$error.pattern">Solo letras, en una sola palabra</span>
                 <input name="Contrasena_Creat" class="input-for" id="Contrasena_Creat_User" type="password" data-ng-model="Contrasena_Creat" data-ng-pattern="/^([A-Z]|[a-z]|[0-9]){4,10}/" data-ng-required placeholder="Contraseña">
                     <span class="error_form" data-ng-show="FormularioCreat.Contrasena_Creat.$error.pattern">Una Solo palabra, sin caracteres especiales</span>
-                <div class="input-for">
-                    <label>Tengo </label><select class="select-form" data-ng-model="Age">
+                <div class="select-form">
+                    <label>Tengo </label><select data-ng-model="Age">
                         <option value="5">5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
@@ -86,15 +86,15 @@
                         <option value="10">10</option>
                     </select>
                 </div>
-                <div class="input-for">
-                    <label>Soy </label><select class="select-form" data-ng-model="Sexo_Creat">
+                <div class="select-form">
+                    <label>Soy </label><select data-ng-model="Sexo_Creat">
                         <option value="nino">Niño</option>
                         <option value="nina">Niña</option>
                     </select>
                 </div>
                 <div class="Contenedor-btn-form">
                    <button data-ng-click="Crear_User()" class="btn-form"  style="float: left;"><span><i class="fa fa-check fa-2x"></i></span></button>
-                   <button data-ng-click="Cancelar()" class="btn-form" style="float: right;"><span><i style="margin-top: -15px;" class="fa fa-caret-left fa-3x"></i></span></button> 
+                   <button data-ng-click="Cancelar()" class="btn-form" style="float: right;"><span><i  class="fa fa-undo fa-2x"></i></span></button> 
                 </div>
 
                     <div>
@@ -133,9 +133,11 @@
                         <h1>Aprende Sobre Formas</h1>
                         <div id="Formas_Play" data-ng-style="styleFormas_Play"></div>
                     </div>
-                    <div id='Colores_Play_Game'>
-                        <button id='Formas_Button_PLay_GAME'>Formas</button>
+                    <div id='Content_Colores_Play_Game'>
+                        <h1>Aprende Sobre Colores</h1>
+                        <div id="Colores_Play" data-ng-style="styleColores_Play"></div>
                     </div>
+                    <button data-ng-click="Atras_Play_Main_GAME()" id="Atras_Play_Main_GAME">Atras</button>
                 </div>
         </div>
 

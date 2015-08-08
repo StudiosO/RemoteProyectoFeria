@@ -1,5 +1,8 @@
 @import "../pless.less";
 @letra: "gloriahallelujah";
+@verde : #47BC85;
+@naranjando: #ff7700;
+@colorBordeForm : #d4c5c0;
 
 //Font de letra
 @font-face{
@@ -48,11 +51,12 @@ body{
             margin: auto;
             h1{
                 text-align: center;
-                color: red;   
+                color: @verde;   
             }
             button{
                 background-color: white;
                 display: block;
+                color: #FF7700;
                 width: 57px;
                 height: 67px;
                 margin: 30px auto 0 auto;
@@ -138,7 +142,7 @@ body{
 
 //Login
 #Formulario{
-    display: block;
+    display: none;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -161,7 +165,7 @@ body{
 .form-login-text{
     width:100%;
     text-align: center;
-    color: #e51919;
+    color: @verde;
     font-size: 2rem;
     font-family: @letra;
 }
@@ -173,6 +177,10 @@ body{
     font-family: @letra;
     font-size: 1.3rem;
     font-weight: bold;
+    .border-left(2px solid @colorBordeForm);
+    .border-bottom(2px solid @colorBordeForm);
+    .border-radius(5px);
+    padding-left: 5px;
 }
 //Mensajes de error de formulario, ngShow
 .error_form{
@@ -199,7 +207,7 @@ body{
     background: transparent;
     font-family: @letra;
     font-size: 1.3rem;
-    color: #197fcc;
+    color: @naranjando;
     padding: 0 5px;
     height: 40px;
     font-weight: bold;
@@ -221,13 +229,17 @@ body{
         margin: auto;
         width: 100%;
         height: 330px;
-        //.border(1px solid black);
     }
     z-index : 3;
 }
 .select-form{
+    margin-left: 10%;
     font-family: @letra;
     font-size: 1.3rem;
+    select{
+       font-family: @letra;
+        font-size: 1.3rem;    
+    }
 }
 /*--------------------------------------------
 --              ESTYLOS DEL GAME            --
@@ -280,33 +292,7 @@ body{
         .border(2px solid blue);
     }
 }
-#Info_Main_GAME{
-    margin:0;
-    width: 100%;
-    font-family:@letra;
-    font-size: 9px;
-    text-align: center;
-    background-color: white;
-    .border(2px solid black);
-    will-change: background-color border;
-    -webkit-animation-name: InfoMainGAME;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration:6s;
-}
-@-webkit-keyframes InfoMainGAME{
-    0%{
-        background-color: yellow;
-        .border(2px solid white);
-    }
-    33%{
-       background-color: blue;
-        .border(2px solid red); 
-    }
-    33%{
-        background-color: red;
-        .border(2px solid green);
-    }
-}
+
 //Style Para El momento de play de escena del juego
 #Content_PLay_Main_GAME{
        z-index:6;
@@ -314,7 +300,7 @@ body{
        top: 0;
        left: 0;
        float: left;
-       width:200%;
+       width:100%;
        height: 100%;
        background-color: black;
        .border(5px solid white);
@@ -322,33 +308,49 @@ body{
 }
 //Contenedor de los elmentos en play game
 #Content_Formas_Play_Game{
-    float: left;
     text-align: center;
-    height: 100%;
-    width: 50%;
+    height: 50%;
+    width: 100%;
     .border(2px dashed white);
 }
 #Formas_Play{
-    width: 200px;
-    height: 200px;
+    margin: auto;
+    width: 150px;
+    height: 150px;
     background: #08B;
-    margin:40% auto auto auto;
 }
 @-webkit-keyframes FomasPlay{
-    0.5%{
+
+    30%{
         width: 200px;
-        height: 200px;
+        height: 150px;
+        .border-radius(0);
+    }
+    60%{
+        .border-radius(50%);
+        width: 150px;
+        height: 150px;
         background: #08B;
     }
-    45%{
-        width: 200px;
-        height: 200px;
-        background: #08B;
+}
+#Content_Colores_Play_Game{
+    text-align: center;
+    width: 100%;
+    height: 50%;
+    .border(2px dashed white);
+}
+#Colores_Play{
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    .border-radius(100%);
+    background-color: red;
+}
+@-webkit-keyframes ColoresPlay{
+    30%{
+        background-color: yellow;
     }
-    50%{
-        border-radius:50%;
-        width: 200px;
-        height: 200px;
-        background: #08B;
+    60%{
+        background-color: white;   
     }
 }
