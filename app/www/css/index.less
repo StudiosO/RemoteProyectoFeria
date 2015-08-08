@@ -1,0 +1,366 @@
+@import "../pless.less";
+@letra: "gloriahallelujah";
+@verde : #47BC85;
+@naranjando: #ff7700;
+@colorBordeForm : #d4c5c0;
+
+//Font de letra
+@font-face{
+    font-family: gloriahallelujah;
+    src:url("fonts/gloriahallelujah.ttf");
+}
+
+//Reset
+*{border: 0; padding: 0; margin: 0; .box-sizing(border-box);}
+
+//Body Elementos por default
+body{
+    background-color: #e50000; 
+    font-size: 10pt;
+}
+//SplashScreen
+#SplashScreen{
+    position: absolute;
+    width: 100%;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    height: 100%;
+    display: none;
+    z-index : 1;
+}
+
+//Sin_Conección 
+#Sin_Coneccion{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-family: @letra;
+        font-size: 10px;
+        background-color: white;
+        div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 175px;
+            margin: auto;
+            h1{
+                text-align: center;
+                color: @verde;   
+            }
+            button{
+                background-color: white;
+                display: block;
+                color: #FF7700;
+                width: 57px;
+                height: 67px;
+                margin: 30px auto 0 auto;
+            }
+        }
+}
+
+//Las Notificaciondes que se le muestran al usuario
+#Notificaciones{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    //background-color: #e5e500;
+    background-color: black;
+    opacity: 0.6;
+    //color: #e50000;
+    font-family: arial;
+    font-size: 0.8rem;
+    text-align:center;
+    z-index: 6;
+    //Boton de notificaciones
+    #Button_Notificacion{
+        width:50px;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 5px 10px;
+        margin: 0 auto;
+        .border(2px solid white);
+        .border-radius(5px);
+        background-color: black;
+        &:active{
+            background-color: white;
+            height: 50px;
+            .border-radius(100%);
+            transition: border-radius 1s;
+        }
+    }
+}
+//El texto que se muestran en las notificaciones
+#Notificaciones_TEXT{
+    color: white;
+    margin: 50% 10% 0 10%;
+    padding:10%;
+}
+//Animacion de carga de datos
+#Carga_DATE{
+    width:40px;
+    height: 40px;
+    .border-radius(100%);
+    margin: 0 auto;
+    transition-property: background;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    will-change : background-color, opacity;
+    -webkit-will-change: background-color, opacity;
+   -webkit-animation-duration: 2s;
+   -webkit-animation-name: CargaDatos;
+   //animation-iteration-count: infinite;
+}
+@-webkit-keyframes CargaDatos{
+    0%{
+       background-color: white;
+       opacity: 0.6;
+    }
+    15%{
+       background-color: #e5cc00;
+       opacity: 1.0; 
+    }
+    33%{
+        bakcground-color: #e5cc00;   
+    }
+    66%{
+        bakcground-color: #19cce5; 
+    }
+    99%{
+        background-color: #e50000;
+        opacity:0.6;
+    }
+}
+
+
+//Login
+#Formulario{
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    form{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 200px;
+        //.border(1px solid black);
+    }
+    z-index : 4;
+}
+
+//Texto que le aparece al usuario antes de logearse
+.form-login-text{
+    width:100%;
+    text-align: center;
+    color: @verde;
+    font-size: 2rem;
+    font-family: @letra;
+}
+//Entradas de los formularios
+.input-for{
+    width:80%;
+    height: 40px;
+    margin:10px 10%;
+    font-family: @letra;
+    font-size: 1.3rem;
+    font-weight: bold;
+    .border-left(2px solid @colorBordeForm);
+    .border-bottom(2px solid @colorBordeForm);
+    .border-radius(5px);
+    padding-left: 5px;
+}
+//Mensajes de error de formulario, ngShow
+.error_form{
+    position: relative;
+    width:80%;
+    height: 40px;
+    margin:10px 10%;
+    font-family: @letra;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: red;
+}
+//Botones ocultaos inicialmente
+.button_none{
+  display: none;   
+}
+//Contenedor de los botones de formulario
+.Contenedor-btn-form{;
+    width:100%;
+    height: 42px;
+    margin-top: 10px;
+}
+.btn-form{
+    background: transparent;
+    font-family: @letra;
+    font-size: 1.3rem;
+    color: @naranjando;
+    padding: 0 5px;
+    height: 40px;
+    font-weight: bold;
+}
+
+//Crear Usuario
+#Crear_Usuario{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    form{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 330px;
+    }
+    z-index : 3;
+}
+.select-form{
+    margin-left: 10%;
+    font-family: @letra;
+    font-size: 1.3rem;
+    select{
+       font-family: @letra;
+        font-size: 1.3rem;    
+    }
+}
+/*--------------------------------------------
+--              ESTYLOS DEL GAME            --
+----------------------------------------------*/
+#GAME_CONTENT{
+       position: absolute;
+       width:100%;
+       height: 100%;
+       background: white;
+}
+#Main_GAME{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 445px;
+    z-index: 5;   
+}
+.Button_Main_GAME{
+    background: white;
+    opacity: 0.9;
+    font-family: @letra;
+    font-size: 40px;
+    color: #197fcc;
+    padding: 30px 5px;
+    width: 100%;
+    height: 110px;
+    .border-radius(100%);
+    font-weight: bold;
+    text-transform : uppercase;
+    .border(2px ridge black);
+}
+#Contn_Button_Main_GAME{
+    width:100%;
+    height:80px;
+    button{
+        background: white;
+        opacity: 0.9;
+        width:50%;
+        height: 100%;
+        font-family: @letra;
+        font-weight: bold;
+        font-size: 30px;
+        color: rgb(150, 50, 150);
+        float:left;
+        .border-radius(50%);
+        .border(2px solid blue);
+    }
+}
+#Info_Main_GAME{
+    margin:0;
+    width: 100%;
+    font-family:@letra;
+    font-size: 9px;
+    text-align: center;
+    background-color: white;
+    .border(2px solid black);
+    will-change: background-color border;
+    -webkit-animation-name: InfoMainGAME;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration:6s;
+}
+@-webkit-keyframes InfoMainGAME{
+    0%{
+        background-color: yellow;
+        .border(2px solid white);
+    }
+    33%{
+       background-color: blue;
+        .border(2px solid red); 
+    }
+    33%{
+        background-color: red;
+        .border(2px solid green);
+    }
+}
+//Style Para El momento de play de escena del juego
+#Content_PLay_Main_GAME{
+       z-index:6;
+       position: absolute;
+       top: 0;
+       left: 0;
+       float: left;
+       width:200%;
+       height: 100%;
+       background-color: black;
+       .border(5px solid white);
+       color: white;
+}
+//Contenedor de los elmentos en play game
+#Content_Formas_Play_Game{
+    float: left;
+    text-align: center;
+    height: 100%;
+    width: 50%;
+    .border(2px dashed white);
+}
+#Formas_Play{
+    width: 200px;
+    height: 200px;
+    background: #08B;
+    margin:40% auto auto auto;
+}
+@-webkit-keyframes FomasPlay{
+    0.5%{
+        width: 200px;
+        height: 200px;
+        background: #08B;
+    }
+    45%{
+        width: 200px;
+        height: 200px;
+        background: #08B;
+    }
+    50%{
+        border-radius:50%;
+        width: 200px;
+        height: 200px;
+        background: #08B;
+    }
+}

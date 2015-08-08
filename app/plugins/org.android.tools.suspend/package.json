@@ -1,0 +1,16 @@
+{
+    "version": "0.1.2",
+    "name": "org.android.tools.suspend",
+    "cordova_name": "Android Suspend",
+    "description": "Use this plugin to suspend your app. Just in case you want your back button to switch to home screen.",
+    "license": "MIT License",
+    "repo": "https://github.com/lamerchun/org.android.tools.suspend",
+    "keywords": [
+        "suspend",
+        "back button"
+    ],
+    "platforms": [
+        "android"
+    ],
+    "engines": []
+}

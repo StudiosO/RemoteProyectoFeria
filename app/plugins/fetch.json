@@ -1,0 +1,20 @@
+{
+    "org.apache.cordova.network-information": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.network-information"
+        }
+    },
+    "net.yoik.cordova.plugins.screenorientation": {
+        "source": {
+            "type": "registry",
+            "id": "net.yoik.cordova.plugins.screenorientation"
+        }
+    },
+    "org.android.tools.suspend": {
+        "source": {
+            "type": "registry",
+            "id": "org.android.tools.suspend"
+        }
+    }
+}
