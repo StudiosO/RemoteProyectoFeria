@@ -136,14 +136,25 @@
                     <div id='Content_Colores_Play_Game'>
                         <h1>Aprende Sobre Colores</h1>
                         <div id="Colores_Play" data-ng-style="styleColores_Play"></div>
-                    </div>
-                    <button data-ng-click="Atras_Play_Main_GAME()" id="Atras_Play_Main_GAME">Atras</button>
+                        <button data-ng-click="Atras_Play_Main_GAME()" id="Atras_Play_Main_GAME">Atras</button>
+                    </div>  
                 </div>
+
+
+        <!--Precargar de archivos audio video imagenes-->
+        <div style="display: none">
+            <div id="Audio_Preload">
+                <audio id="audioPreload_01" src="{{SRC_audioPreload_01}}" preload="auto"></audio>
+                <audio id="audioPreload_02" src="{{SRC_audioPreload_02}}" preload="auto"></audio>
+                <audio id="audioPreload_04" src="{{SRC_audioPreload_04}}" preload="auto"></audio>
+                <audio id="audioPreload_05" src="{{SRC_audioPreload_05}}" preload="auto"></audio>
+                <audio id="audioPreload_06" src="{{SRC_audioPreload_06}}" preload="auto"></audio>
+                <audio id="audioPreload_07" src="{{SRC_audioPreload_07}}" preload="auto"></audio>
+                <audio id="audioPreload_08" src="{{SRC_audioPreload_08}}" preload="auto"></audio>
+            </div>
         </div>
 
-
-
-
+        </div>
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/angularfire.min.js"></script>
         <script type="text/javascript" src="js/firebase.js"></script>
