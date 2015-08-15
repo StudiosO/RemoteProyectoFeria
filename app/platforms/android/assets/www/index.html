@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
         <title>Kinds School</title>
     </head>
-    <body data-ng-app="KindsSchool">
+    <body data-ng-app="KindsSchool" onload="alertSize()">
         
 
 
@@ -115,35 +115,86 @@
 
             <!--Menu principal del game-->
             <div id='Main_GAME' data-ng-style="styleMain_GAME">
-                <button data-ng-click='Play_Main_GAME()' class='Button_Main_GAME' id='Play_GAME'>Play</button>
-                <button class='Button_Main_GAME' id='Puntuaciones_GAME'>Logros</button>
-                <button class='Button_Main_GAME' id='Opciones_GAME'>Opciones</button>
+                <button data-ng-click='Play_Main_GAME()' class='Button_Main_GAME' id='Play_GAME'>Play<i class="fa fa-play fa-2x"></i></button>
+                <button class='Button_Main_GAME' id='Puntuaciones_GAME'>Logros<i class="fa fa-trophy fa-2x"></i></button>
+                <button class='Button_Main_GAME' id='Opciones_GAME'>Opciones<i class="fa fa-cog fa-2x"></i></button>
                 <div id="Contn_Button_Main_GAME">
-                    <button id='Cerrar_GAME'>Cerrar</button>
-                    <button data-ng-click='Salir_Sesion()' id='Salir_GAMe'>Salir</button>
+                    <button id='Cerrar_GAME'>Cerrar <i class="fa fa-undo fa-2x"></i></button>
+                    <button data-ng-click='Salir_Sesion()' id='Salir_GAMe'>Salir <i class="fa fa-times fa-2x"></i></button>
                 </div>
                 <div id="Info_Main_GAME">
-                    <h1 id="usuario"><script text="javascript/text">document.write(localStorage.OsmanyTeamNameUser || "error Reinicie Sesión");</script></h1>
+                    <h1 id="usuario"></h1>
                 </div>
             </div>
 
 
-                <div id="Content_PLay_Main_GAME" data-ng-style="styleContent_PLay_Main_GAME">
-                    <div id='Content_Formas_Play_Game'>
-                        <h1>Aprende Sobre Formas</h1>
-                        <div id="Formas_Play" data-ng-style="styleFormas_Play"></div>
+            <div id="Content_PLay_Main_GAME">
+                <h2>Colores</h2>
+
+                    <div data-ng-click="AbrirEscena('Escena_Conocer_Colores')" class="PuntosAccionPlay" id="Conoce_Colores">
+                        <h2>Conoce los Colores</h2>
+                        <div id="CC_colores">
+                            <div id="CC_color1"></div>
+                            <div id="CC_color2"></div>
+                            <div id="CC_color3"></div>
+                        </div>
                     </div>
-                    <div id='Content_Colores_Play_Game'>
-                        <h1>Aprende Sobre Colores</h1>
-                        <div id="Colores_Play" data-ng-style="styleColores_Play"></div>
+
+                    <div class="PuntosAccionPlay" id="Identifica_Colores">
+                        <h2>Identifica los Colores</h2>
+                        <div id="IC_colores">
+                            <div id="IC_color1"></div>
+                            <div id="IC_color2"></div>
+                            <div id="IC_color3"></div>
+                            <div id="IC_color4"></div>
+                        </div>
                     </div>
-                    <button data-ng-click="Atras_Play_Main_GAME()" id="Atras_Play_Main_GAME">Atras</button>
+
+                    <div class="PuntosAccionPlay" id="Mescla_Colores">
+                        <h2>Mescla los Colores</h2>
+                        <div id="MC_colores">
+                            <div id="MC_color1"></div>
+                            <div id="MC_color2"></div>
+                            <div id="MC_color3"></div>
+                        </div>
+                    </div>
+
+
+                <button data-ng-click="Atras_Play_Main_GAME()" class="AtrasBoton" id="Atras_Play_Main_GAME"><span><i class="fa fa-arrow-left fa-2x"></i></span></button>
+            </div>
+
+
+            <!--Contenedor de play games-->
+            <div id="Play_Colores" data-ng-controller="Play_Colores">
+
+                <div id="Escena_Conocer_Colores">
+                    <div class="Colores_Conten_Escena" id="Colores_Primarios">
+                        <h2>Colores Primarios</h2>
+                        <div data-ng-dblclick="Reiniciar_CP()" data-ng-click="Click_CP_Red()" id="CP_Red"><img src="img/touch.png"></div><div data-ng-click="Click_CP_Berde()" id="CP_Berde"></div><div data-ng-click="Click_CP_Azul()" id="CP_Azul"></div>
+                        <button class="AtrasBoton" data-ng-click="Main_GAME('Escena_Conocer_Colores')"><span><i class="fa fa-arrow-left fa-2x"></i></span></button>
+                    </div>
+                    <div class="Colores_Conten_Escena" id="Colores_Secundarios">
+                        <div id="CS_Amarillo"></div><div id="CS_Magneta"></div><div id="CS_Cian"></div>
+                    </div>
                 </div>
+
+            </div>
+
+            <!--Precargar de archivos audio video imagenes-->
+            <div>
+
+                <div id="Audio_Preload" style="display: none">
+                    <audio id="audioPreload_01" src="{{SRC_audioPreload_01}}" preload="auto"></audio>
+                    <audio id="audioPreload_02" src="{{SRC_audioPreload_02}}" preload="auto"></audio>
+                    <audio id="audioPreload_04" src="{{SRC_audioPreload_04}}" preload="auto"></audio>
+                    <audio id="audioPreload_05" src="{{SRC_audioPreload_05}}" preload="auto"></audio>
+                    <audio id="audioPreload_06" src="{{SRC_audioPreload_06}}" preload="auto"></audio>
+                    <audio id="audioPreload_07" src="{{SRC_audioPreload_07}}" preload="auto"></audio>
+                    <audio id="audioPreload_08" src="{{SRC_audioPreload_08}}" preload="auto"></audio>
+                </div>
+
+            </div>
         </div>
-
-
-
-
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/angularfire.min.js"></script>
         <script type="text/javascript" src="js/firebase.js"></script>

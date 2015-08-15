@@ -37,7 +37,6 @@ Button_Notificacion.addEventListener("click", function(){
 });
 
 
-
 //APP de angular de la aplicacion
 var app = angular.module("KindsSchool", ["firebase", "ngSanitize"]);
 
@@ -250,6 +249,7 @@ app.controller("GAME_CONTROLLER", function ($scope, $firebaseObject) {
     var preload08 = document.getElementById("audioPreload_08");
 
     //Los enlaces de rutas para los archivos de precargar
+    //Audio
     $scope.SRC_audioPreload_01 = "";
     $scope.SRC_audioPreload_02 = "";
     $scope.SRC_audioPreload_04 = "";
@@ -258,6 +258,9 @@ app.controller("GAME_CONTROLLER", function ($scope, $firebaseObject) {
     $scope.SRC_audioPreload_07 = "";
     $scope.SRC_audioPreload_08 = "";
     $scope.SRC_audioPreload_09 = "";
+    //Video
+    $scope.SRC_videoPreload_01mp4 = "";
+    $scope.SRC_videoPreload_01webm = "";
 
     //Obejtos que contiene las rutas de todos los archivos
     var RutasResource = {};
@@ -266,17 +269,50 @@ app.controller("GAME_CONTROLLER", function ($scope, $firebaseObject) {
     $scope.GAME_STYLE = {display : "block", background: "url('img/fondo02.jpg')"};
 
     //Estilo del contenedor del menu del play game
-    $scope.styleContent_PLay_Main_GAME = {display: "none"};
+    document.getElementById("Content_PLay_Main_GAME").style.display = "none";
 
+
+    //Funcion para los botones de atras para detectar el alto de pantalla
+    /*function alertSize() {
+
+      if( typeof( window.innerWidth ) == 'number' ) {
+
+        //No-IE
+
+        $scope.AnchoVentana = window.innerWidth;
+
+        $scope.AltoVentana = window.innerHeight;
+
+      } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+
+        //IE 6+
+
+        $scope.AnchoVentana = document.documentElement.clientWidth;
+
+        $scope.AltoVentana = document.documentElement.clientHeight;
+
+      } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+
+        //IE 4 compatible
+
+        $scope.AnchoVentana = document.body.clientWidth;
+
+        $scope.AltoVentana = document.body.clientHeight;
+
+      }
+
+      window.alert( 'Width = ' + myWidth );
+
+      window.alert( 'Height = ' + myHeight );
+
+    }*/
 
     //Funcion para el evento click del play main GAME
     $scope.Play_Main_GAME = function(){
-        $scope.styleFormas_Play = {"-webkit-animation-name" : "FomasPlay", "-webkit-animation-duration" : "12s", "-webkit-animation-iteration-count" : "infinite"};
-         $scope.styleColores_Play = {"-webkit-animation-name" : "ColoresPlay", "-webkit-animation-duration" : "12s", "-webkit-animation-iteration-count" : "infinite"};
-        $scope.styleContent_PLay_Main_GAME = {display : "block"};
-        $scope.SRC_audioPreload_01 = "resource/audio/prueba.mp3"
+        document.getElementById("Main_GAME").style.display = "none";
+        document.getElementById("Content_PLay_Main_GAME").style.display = "block";
+        
     }
-
     //Funcion para el evento click del boton Salir de sesion
     $scope.Salir_Sesion = function (){
         document.getElementById("Nombre_Login_User").value = "";
@@ -288,7 +324,50 @@ app.controller("GAME_CONTROLLER", function ($scope, $firebaseObject) {
     
     //Funcion para el evento click del boton atras del menu play GAME
     $scope.Atras_Play_Main_GAME = function (){
-        $scope.styleContent_PLay_Main_GAME = {display : "none"}; 
+        document.getElementById("Content_PLay_Main_GAME").style.display = "none";
+        document.getElementById("Main_GAME").style.display = "block"; 
+    }
+
+    //Funcion para abrir escena
+    $scope.AbrirEscena = function(id){
+        document.getElementById("Play_Colores").style.display = "block";
+        document.getElementById(id).style.display = "block";
+        document.getElementById("Content_PLay_Main_GAME").style.display = "none";
+    }
+    //PARA regresar al menu
+    $scope.Main_GAME = function (id){
+        document.getElementById(id).style.display="none";
+        document.getElementById("Main_GAME").style.display = "block";
     }
     
+});
+
+
+//Controlador de play formas
+app.controller("Play_Colores", function($scope){
+
+    //---------------------------------------------------------//
+    //Eventos y actividades para la escena identificar colores
+    var img = "<img src='img/touch.png'>";
+    var red = document.getElementById("CP_Red"), berde = document.getElementById("CP_Berde"), azul = document.getElementById("CP_Azul");
+    $scope.Click_CP_Red = function(){
+        var x = document.getElementById("CP_Red").innerHTML;
+        if(x != ""){
+            red.innerHTML = "";
+            berde.innerHTML = img;
+        }
+    }
+    $scope.Click_CP_Berde = function(){
+        var x = document.getElementById("CP_Berde").innerHTML;
+        if(x != ""){
+            berde.innerHTML = "";
+            azul.innerHTML = img;
+        }
+    }
+    $scope.Click_CP_Azul = function (){
+        var x = document.getElementById("CP_Azul").innerHTML;
+        if(x != ""){
+            azul.innerHTML = "";
+        }
+    }
 });

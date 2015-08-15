@@ -15,7 +15,6 @@
 
 //Body Elementos por default
 body{
-    background-color: #e50000; 
     font-size: 10pt;
 }
 //SplashScreen
@@ -198,7 +197,7 @@ body{
   display: none;   
 }
 //Contenedor de los botones de formulario
-.Contenedor-btn-form{;
+.Contenedor-btn-form{
     width:100%;
     height: 42px;
     margin-top: 10px;
@@ -293,7 +292,7 @@ body{
     }
 }
 
-//Style Para El momento de play de escena del juego
+//Style Para El momento de play del juego
 #Content_PLay_Main_GAME{
        z-index:6;
        position: absolute;
@@ -302,55 +301,246 @@ body{
        float: left;
        width:100%;
        height: 100%;
-       background-color: black;
-       .border(5px solid white);
-       color: white;
+       background-color: #B0C2F2;
+       .border(5px groove #B0C2F2);
+       color: @verde;
+       font-family: @letra;
+       text-align: center;
+       font-size: 1.3rem;
 }
-//Contenedor de los elmentos en play game
-#Content_Formas_Play_Game{
-    text-align: center;
-    height: 50%;
-    width: 100%;
-    .border(2px dashed white);
-}
-#Formas_Play{
-    margin: auto;
-    width: 150px;
-    height: 150px;
-    background: #08B;
-}
-@-webkit-keyframes FomasPlay{
 
-    30%{
-        width: 200px;
-        height: 150px;
-        .border-radius(0);
+//Style de Los elementos de selecion de conoce los colores
+.PuntosAccionPlay{
+    background-color: #DCF9E4;
+    width: 90%;
+    height: 26.3%;
+    min-height: 150px;
+    margin: 0 auto;
+    .border(2px ridge black);
+}
+
+
+#Conoce_Colores{
+    div{
+        width: 65px;
+        height: 100px;
     }
-    60%{
-        .border-radius(50%);
-        width: 150px;
-        height: 150px;
-        background: #08B;
+    h2{
+        font-size: 1rem;
     }
 }
-#Content_Colores_Play_Game{
-    text-align: center;
-    width: 100%;
-    height: 50%;
-    .border(2px dashed white);
-}
-#Colores_Play{
+
+#CC_colores{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
-    width: 150px;
-    height: 150px;
-    .border-radius(100%);
+    div{
+        width: 50px;
+        height: 50px;
+        .border-radius(100%);
+        .border(2px solid black);
+    }
+}
+#CC_color1{
     background-color: red;
 }
-@-webkit-keyframes ColoresPlay{
-    30%{
-        background-color: yellow;
+
+#CC_color2{
+    position: relative;
+    top: -35px;
+    left: 20px;
+    background-color:blue;
+
+}
+
+#CC_color3{
+    position: relative;
+    top: -75px;
+    right:5px;
+    background-color: yellow;
+
+}
+
+
+//Style de Los elementos de selecion de Identificar colores
+#Identifica_Colores{
+    h2{
+        font-size: 1rem;
     }
-    60%{
-        background-color: white;   
+}
+#IC_colores{
+    width: 110px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    div{
+        .border-radius(100%);
+        .border(2px solid black);
+        width: 50px;
+        height: 50px;
     }
+}
+#IC_color1{
+    background-color: red;
+    position: relative;
+    top:0;
+    left:0;
+}
+#IC_color2{
+    background-color: yellow;
+    position: relative;
+    top:-50px;
+    left:60px;
+}
+#IC_color3{
+    background-color: blue;
+    position: relative;
+    top: -45px;
+}
+#IC_color4{
+    background-color: green;
+    position: relative;
+    top: -95px;
+    left: 60px;
+}
+//Style de Los elementos de selecion de Mesclar Colores
+#Mescla_Colores{
+    h2{
+        font-size: 1rem;
+    }
+}
+#MC_colores{
+    width: 90px;
+    height: 50px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    .border-radius(23px);
+    div{
+        width:50px;
+        height: 50px;
+        .border-radius(100%);
+    }
+}
+#MC_color1{
+    background-color: rgba(255, 0, 0, 0.7);
+    //.border(2px groove red);
+}
+#MC_color2{
+    position: relative;
+    top: -50px;
+    left: 20px;
+    background-color: rgba(0, 255, 0, 0.7);
+    //.border(2px groove green);
+}
+#MC_color3{
+    position: relative;
+    top: -100px;
+    left: 40px;
+    background-color: rgba(0, 0, 255, 0.7);
+    //.border(2px groove blue);
+}
+.AtrasBoton{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width:35px;
+    height: 40px;
+    margin: auto;
+    color: blue;
+    background: transparent;
+}
+
+//Contenedor Colores 
+#Play_Colores{
+    display: block;
+}
+//Estilos para la escena Conocer colores
+#Escena_Conocer_Colores{
+    position: absolute;
+    //Todas las Main de las escenas usan este z-index
+    z-index: 7;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    font-family: @letra;
+    color: @verde;
+}
+
+//--------------------------------------------//
+.Colores_Conten_Escena{
+    width: 100%;
+    height: 50%;
+    min-height: 50px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+#Colores_Primarios{
+    div{
+        width: 30%;
+        height: 100%;
+        min-height: 50px;
+        min-width: 50px;
+        max-height: 200px;
+        max-width: 200px;
+        .border(2px solid black);
+        display: inline-block;
+        white-space: nowrap;
+        img{
+            position: relative;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            margin: 0;
+            width: 90%;
+            height: 90%;
+            min-height: 50px;
+            min-width: 50px;
+        }
+    }
+}
+#CP_Red{
+    background-color: red;
+}
+#CP_Berde{
+    background-color: green;
+}
+#CP_Azul{
+    background-color: blue;
+}
+
+
+#Colores_Secundarios{
+    div{
+        width: 30%;
+        height: auto;
+        min-height: 50px;
+        min-width: 50px;
+        .border-radius(50%);
+        display: inline-block;
+        white-space: nowrap;
+    }
+}
+#CS_Amarillo{
+    background-color: yellow;
+}
+#CS_Magneta{
+    background-color: rgb(255, 0, 255);
+}
+#CS_Cian{
+    background-color: rgb(0, 255, 255);
 }
